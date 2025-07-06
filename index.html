@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Fixithub</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-gray-100 font-sans">
+
+<div class="min-h-screen flex flex-col items-center">
+  <!-- Hero -->
+  <div class="w-full bg-cover bg-center h-64" style="background-image:url('https://images.unsplash.com/photo-…');">
+    <div class="w-full h-full bg-black bg-opacity-40 flex items-center justify-center">
+      <div class="text-center text-white px-4">
+        <h1 class="text-3xl font-bold">Report Community Issues</h1>
+        <p class="mt-2">Help improve your neighborhood by reporting local problems</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="bg-white shadow-md rounded-lg p-6 mt-6 w-full max-w-md">
+    <h2 class="text-xl font-semibold mb-4">Quick Report</h2>
+    <textarea id="desc" rows="3" placeholder="Describe the issue (e.g., pothole)"
+      class="w-full border-gray-300 rounded p-2 mb-4"></textarea>
+
+    <div class="border-2 border-dashed border-indigo-300 rounded-lg p-6 mb-4 text-center">
+      <label for="photo" class="cursor-pointer text-indigo-600">
+        <i class="fas fa-camera text-2xl mb-2"></i><br/>
+        Tap to add photo
+      </label>
+      <input type="file" id="photo" class="hidden" accept="image/*"/>
+    </div>
+
+    <button onclick="getLocation()" class="w-full bg-green-100 text-green-800 rounded p-3 mb-2">
+      <strong>Location Detection</strong><br/><small>We’ll detect your location to route this issue</small>
+    </button>
+    <p id="loc" class="text-gray-500 text-sm mb-4"></p>
+
+    <button id="submitBtn" class="w-full bg-indigo-600 text-white rounded p-3 hover:bg-indigo-700">
+      Submit Issue
+    </button>
+  </div>
+</div>
+
+<script>
+// Location button functionality
+function getLocation() {
+  const el = document.getElementById('loc');
+  if (!navigator.geolocation) {
+    el.textContent = 'Geolocation is not supported';
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(p => {
+    el.textContent = `📍 Location: ${p.coords.latitude.toFixed(6)}, ${p.coords.longitude.toFixed(6)}`;
+  }, () => el.textContent = 'Unable to retrieve location.');
+}
+</script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
