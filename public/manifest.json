@@ -1,0 +1,8 @@
+{
+  "orientation": "portrait",
+  "display": "standalone",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "\t/landing",
+  "scope": "/"
+}
