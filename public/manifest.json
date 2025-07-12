@@ -1,8 +1,15 @@
 {
-  "orientation": "portrait",
+  "name": "Fixithub Civil",
+  "short_name": "Fixithub",
+  "start_url": "/landing",
   "display": "standalone",
-  "lang": "en",
-  "dir": "ltr",
-  "start_url": "\t/landing",
-  "scope": "/"
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a8a",
+  "icons": [
+    {
+      "src": "/fixithub_icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
